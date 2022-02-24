@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The CocktailDB</title>
+    <!-- fontawesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- css file include -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- header section start -->
+    <header>
+      <!-- navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img
+              width="250px"
+              src="https://www.thecocktaildb.com/images/logo.png"
+              alt=""
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span id="toggle" class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul
+              class="navbar-nav mb-2 ms-auto d-flex justify-content-center align-items-center"
+            >
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"
+                  >Browse</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contribute</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Devs
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <ul
+                  class="list-unstyled d-flex justify-content-center align-items-center mx-2"
+                >
+                  <li class="mx-2">Login</li>
+                  <li>Signup</li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="button">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <!-- banner -->
+      <section class="mt-5 w-75 mx-auto">
+        <div class="d-flex justify-content-center align-items-center">
+          <div>
+            <img
+              width="600px"
+              class="img-fluid"
+              src="https://www.thecocktaildb.com/images/cocktail_left.png"
+              alt=""
+            />
+          </div>
+          <div class="mx-5 text-center">
+            <h1>Welcome to TheCocktailDB</h1>
+            <p>
+              An open, crowd-sourced database of drinks and cocktails from
+              around the world. We also offer a free JSON API for anyone wanting
+              to use it. If you like the site, please consider supporting us on
+              Patreon by clicking the link below...
+            </p>
+            <div class="text-center">
+              <img
+                width="200px"
+                src="https://www.thecocktaildb.com/images/patreon_logo.png"
+                alt=""
+              />
+              <small class="d-block my-3"
+                >Click Currently 750 supporters Click</small
+              >
+            </div>
+          </div>
+          <div>
+            <img
+              width="600px"
+              class="img-fluid"
+              src="https://www.thecocktaildb.com/images/cocktail_right.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </section>
+    </header>
+    <hr class="w-75 mx-auto" />
+    <!-- header section end -->
+    <main>
+      <!-- search box -->
+      <section class="w-50 mx-auto">
+        <div class="input-group mb-3">
+          <input
+            id="search-input"
+            type="text"
+            class="form-control"
+            placeholder="Search Your favorite Drinks"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+          />
+          <button onclick="searchBtn()" class="btn btn-dark">
+            <span>
+              <i class="fas fa-search"></i>
+            </span>
+          </button>
+        </div>
+        <p id="error-one" class="text-center text-danger fs-4"></p>
+      </section>
+      <hr class="w-75 mx-auto" />
+      <!-- display the result -->
+      <section class="my-5 container">
+        <p id="error-two" class="text-center text-danger fs-4"></p>
+        <div
+          id="container"
+          class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4"
+        >
+          <!-- inject here -->
+        </div>
+      </section>
+    </main>
+    <footer class="mt-5 py-4" style="background-color: #010e03">
+      <div class="container d-flex justify-content-between align-items-center">
+        <div>
+          <p>&copy; 2022 TheCocktailDB.</p>
+        </div>
+        <div
+          class="list-unstyled d-flex justify-content-around align-items-center"
+        >
+          <img src="https://www.thesportsdb.com/images/logo-tcdb.png" alt="" />
+          <img src="https://www.thesportsdb.com/images/logo-tadb.png" alt="" />
+          <img src="https://www.thesportsdb.com/images/logo-tmdb.png" alt="" />
+        </div>
+        <div>
+          <ul
+            class="list-unstyled d-flex justify-content-around align-items-center"
+          >
+            <li class="mx-1">
+              <a class="text-decoration-none" href="#">About</a>
+            </li>
+            <li class="mx-1">
+              <a class="text-decoration-none" href="#">Faq</a>
+            </li>
+            <li class="mx-1">
+              <a class="text-decoration-none" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal -->
+    <div
+      class="modal fade text-dark"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div id="modal-body" class="modal-body">
+            <!-- inject here -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- script file add -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./js/app.js"></script>
+  </body>
+</html>
